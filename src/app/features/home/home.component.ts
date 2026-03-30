@@ -18,4 +18,7 @@ export class HomeComponent {
   goToPowerPlant(){
     this.router.navigateByUrl('/powerplant')
   }
+  goToCropguard(){
+    this.router.navigateByUrl('/cropguardlogin')
+  }
 }

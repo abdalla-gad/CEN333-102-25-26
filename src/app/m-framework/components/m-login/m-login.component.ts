@@ -32,6 +32,8 @@ export class MLoginComponent {
     return stored ? JSON.parse(stored) : [];
   }
 
+
+
   saveUsers(users: { name: string, email: string, password: string }[]) {
     localStorage.setItem('cropguard_users', JSON.stringify(users));
   }

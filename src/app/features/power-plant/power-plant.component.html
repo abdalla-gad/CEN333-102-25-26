@@ -42,7 +42,7 @@
         <m-aha type="warning" header="Underloaded">
             The plant is running below optimal capacity
         </m-aha>
-    } @else if (loadPercent <= 70){
+    } @else if (loadPercent <= getThreshold()){
         <m-aha type="success" header="Normal">
             The plant is operating optimally
         </m-aha>
