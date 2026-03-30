@@ -23,17 +23,28 @@ calculate(){
   this.calculated = true;
 }
 
-
+getThreshold(): number{
+  if(this.fuelType==='nuclear') return 75;
+  else if(this.fuelType==='coal') return 70;
+  else if(this.fuelType==='Solar') return 80;
+  else return 90;
+}
 
 getCondition(value: number): string {
     
-  if (value < 40) {
-    return 'warning';
-  } else if (value <= 70) {
-    return 'success';
-  } else {
-    return 'error';
+  let threshold = this.getThreshold();
+
+  if(value<40){
+    console.log('get condition finished')
+    return 'warning'
+  } else if (value<=threshold){
+    console.log('get condition finished')
+    return 'success'
+  }else{
+    console.log('get condition finished')
+  return 'error';
   }
+
 
 }
 }

@@ -4,11 +4,13 @@
             result="{{ loadPercent }}" 
             (calculate)="calculate()"> 
 
-<label>Fuel Type:</label>
-<select [(ngModel)]="fuelType" name="fuelType">
+<label>Fuel Type:</label>     
+
+<select [(ngModel)]="fuelType">
 <option value="coal">Coal</option>
 <option value="nuclear">Nuclear</option>
 <option value="solar">Solar</option>
+<option value="wind">Wind</option>
 </select>
 
 
