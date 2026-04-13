@@ -26,6 +26,7 @@ ngOnInit() {
 this.chartId = 'chart-' + Math.random().toString(36).substring(2, 9);
 }
 
+
 ngOnChanges(changes: SimpleChanges) {
 if (changes['data'] && this.chart) {
 this.updateChart();

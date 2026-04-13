@@ -1,7 +1,7 @@
 <m-container>
 
     <m-main-menu 
-    [menuitems]="['Log Reading', 'View Charts', 'View Logs','View Alerts']"
+    [menuitems]="['Log Reading', 'View Charts', 'View Logs']"
     (menuclick)="onMenuClick($event)">
 </m-main-menu>
 
@@ -9,14 +9,26 @@
 <div>
     <h3>log a new reading</h3>
 
-    <label>Date:</label>
-    <input type="date" [(ngModel)]="dateValue">
-    <br>
-    <label>Soil pH (0-14):</label>
-    <input type="number" [(ngModel)]="phValue">
-    <br>
-    <label>Soil Moisture (%):</label>
-    <input type="number" [(ngModel)]="moistureValue">
+    <div class="form-group">
+        <label>Date:</label>
+        <input type="date" [(ngModel)]="dateValue" name="d">
+      </div>
+      
+      <div class="form-group">
+        <label>Soil pH (0-14):</label>
+        <input type="number" [(ngModel)]="phValue" name="ph">
+      </div>
+      
+      <div class="form-group">
+        <label>Soil Moisture (%):</label>
+        <input type="number" [(ngModel)]="moistureValue" name="m">
+      </div>
+    
+    @if(validationError !==''){
+        <br>
+        <p style="color: red;"> {{validationError}}</p>
+    }
+    
     <br>
     <button class="pure-button" (click)="saveReading()">Save Reading</button>
 
@@ -45,8 +57,48 @@
 }
 @if(activeSelection === 'View Logs'){
     <p>View Logs</p>
+
+    <m-search-button (search)="filterTerm =$event"></m-search-button>
+    <m-table
+    [data]="phReadings"
+    [filterTerm]="filterTerm"
+    [showCaption]="true"
+    caption="Soil pH Readings"
+    >
+    </m-table>
+
+    <m-table
+    [data]="moistureReadings"
+    [filterTerm]="filterTerm"
+    [showCaption]="true"
+    caption="Soil Moisture Readings">
+    </m-table>
+
 }
-@if(activeSelection === 'View Alerts'){
-    <p>View Alerts</p>
+@if (showAlerts) {
+<div>
+
+    @if (!isPhAlert() && !isMoistureAlert()) {
+      <m-aha type="success" header="All Clear" >
+        All parameters are within safe ranges.
+      </m-aha>
+    }
+
+    @if (isPhAlert()) {
+      <m-aha type="error" header="Soil pH Alert" >
+        Latest pH of {{ getLatest(phReadings) }} is outside
+        the safe range (5.5 - 7.5). Soil amendment required.
+      </m-aha>
+    }
+
+    @if (isMoistureAlert()) {
+      <m-aha type="warning" header="Soil Moisture Alert" >
+        Latest moisture of {{ getLatest(moistureReadings) }}%
+        is outside the safe range (20 - 80%).
+        Check irrigation system.
+      </m-aha>
+    }
+  </div>
 }
+
 </m-container>
