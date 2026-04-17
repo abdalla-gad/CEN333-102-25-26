@@ -98,10 +98,13 @@ export class CropguardComponent {
       ? readings[readings.length - 1].value : null;
   }
 
+
+
   isPhAlert(): boolean {
     const v = this.getLatest(this.phReadings);
     return v !== null && (v < 5.5 || v > 7.5);
   }
+
 
   isMoistureAlert(): boolean {
     const v = this.getLatest(this.moistureReadings);
