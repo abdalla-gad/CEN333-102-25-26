@@ -21,4 +21,7 @@ export class HomeComponent {
   goToCropguard(){
     this.router.navigateByUrl('/cropguardlogin')
   }
+  goVitalTrend(){
+    this.router.navigateByUrl('/vitaltrend')
+  }
 }
