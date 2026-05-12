@@ -24,4 +24,7 @@ export class HomeComponent {
   goVitalTrend(){
     this.router.navigateByUrl('/vitaltrend')
   }
+  goToHeritageMap(){
+    this.router.navigateByUrl('/heritagemap')
+  }
 }
