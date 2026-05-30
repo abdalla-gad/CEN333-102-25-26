@@ -27,4 +27,7 @@ export class HomeComponent {
   goToHeritageMap(){
     this.router.navigateByUrl('/heritagemap')
   }
+  goToSchematicSnap(){
+    this.router.navigateByUrl('/schematicsnap')
+  }
 }

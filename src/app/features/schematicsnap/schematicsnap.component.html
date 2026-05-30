@@ -1,0 +1,18 @@
+<m-container>
+    <br><br><br><br>
+    <input type="file" accept="image/*" (change)="onImageCaptured($event)">
+
+    @if(imagePreview){
+        <br>
+        <img [src]="imagePreview">
+        <button (click)="analyzeImageButton()">Analyze Image</button>
+    }
+
+    <button (click)="startCam()">Start Camera</button>
+    <button (click)="capturePhoto()">Capture</button>
+    <button (click)="stopCam()">Stop Camera</button>
+    <video #video autoplay ></video>
+    <canvas #canvas style="display:none;"></canvas>
+
+
+</m-container>
