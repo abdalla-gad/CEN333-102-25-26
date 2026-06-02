@@ -10,5 +10,5 @@ export const environment = {
       appId: "1:58528370468:web:cc1eda795db197d7256db1"
   },
   mapsAPIKey: "AIzaSyAMZd4hs8kVq7iZJJdiH_z_-4IPv1ZyjNM",
-  geminiApiKey:"AIzaSyCobbphf6b_czoQyl-i96806vDTj2w-ulY"
+  geminiApiKey:"AQ.Ab8RN6KCGAGlYnOo3ZUych-aV2mbGronSz8maKzHDn8sE2X5-A"
 };
