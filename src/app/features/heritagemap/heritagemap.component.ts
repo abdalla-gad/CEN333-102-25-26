@@ -78,12 +78,10 @@ showHeatMap: boolean = false;
 private overlay = new GoogleMapsOverlay({});
 
 onMapReady(map: google.maps.Map) {
-  this.overlay.setMap(map);   // attach deck.gl to the Google map
-  this.buildHeatMap();
+  this.overlay.setMap(map);   
 }
 
 buildHeatMap() {
-  console.log("building heatmap")
   const points = this.sites.map(site => ({
     position: [site.lng, site.lat],  
     weight: 1
